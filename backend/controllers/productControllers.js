@@ -19,52 +19,57 @@ export const newProduct = async (req, res) => {
 };
 
 // Get single product details   =>  /api/v1/products/:id
-// export const getProductDetails = async (req, res) => {
-//   const product = await Product.findById(req?.params?.id);
+export const getProductDetails = async (req, res) => {
+  // find id from db
+  const product = await Product.findById(req?.params?.id);
 
-//   if (!product) {
-//     return res.status(404).json({
-//       error: "Product not found",
-//     });
-//   }
-
-//   res.status(200).json({
-//     product,
-//   });
-// };
+  if (!product) {
+    return res.status(404).json({
+      error: "Product not found",
+    });
+  }
+  // if product existe
+  res.status(200).json({
+    product,
+  });
+};
 
 // Update product details   =>  /api/v1/products/:id
-// export const updateProduct = async (req, res) => {
-//   let product = await Product.findById(req?.params?.id);
+export const updateProduct = async (req, res) => {
+  let product = await Product.findById(req?.params?.id);
 
-//   if (!product) {
-//     return res.status(404).json({
-//       error: "Product not found",
-//     });
-//   }
+  if (!product) {
+    return res.status(404).json({
+      error: "Product not found",
+    });
+  }
 
-//   product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
-//     new: true,
-//   });
+  product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
+    // id of the pd, pass data in the body that i wanna update.
+    new: true, // return back the new pd object
+  });
 
-//   res.status(200).json({
-//     product,
-//   });
-// };
+  res.status(200).json({
+    product,
+  });
+};
 
 // Delete product   =>  /api/v1/products/:id
-// export const deleteProduct = async (req, res) => {
-//   const product = await Product.findById(req?.params?.id);
+export const deleteProduct = async (req, res) => {
+  // find the pd in db
+  const product = await Product.findById(req?.params?.id);
 
-//   if (!product) {
-//     return res.status(404).json({
-//       error: "Product not found",
-//     });
-//   }
+  // if no pd send error
+  if (!product) {
+    return res.status(404).json({
+      error: "Product not found",
+    });
+  }
 
-//   await product.deleteOne();
+  // otherwise call deleteOne
+  await product.deleteOne();
 
-//   res.status(200).json({
-//     message: "Product Deleted",
-//   });
-// };
+  res.status(200).json({
+    message: "Product Deleted",
+  });
+};
