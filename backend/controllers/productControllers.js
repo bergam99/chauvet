@@ -2,7 +2,7 @@ import Product from "../models/product.js";
 
 // Create new Product   =>  /api/v1/products
 export const getProducts = async (req, res) => {
-  const products = await Product.find();
+  const products = await Product.find(); // find all the product from Product schema
 
   res.status(200).json({
     products,

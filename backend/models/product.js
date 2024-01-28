@@ -36,12 +36,8 @@ const productSchema = new mongoose.Schema(
       type: Number,
       required: [true, "Entrez le nombre de stock"],
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-    },
   },
-  { timestamps: true } // create  and update add fields that contain the date
+  { timestamps: true } // create date
 );
 
 export default mongoose.model("Product", productSchema); // we can use "Product" to delete or put data in db.
