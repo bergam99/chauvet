@@ -3,6 +3,7 @@ const app = express();
 import dotenv from "dotenv";
 import { connectDatabase } from "./config/dbConnect.js";
 import errorMiddleWare from "./middlewares/errors.js";
+import cookieParser from "cookie-parser";
 
 // Handle Uncaught exceptions
 process.on("uncaughtException", (err) => {
@@ -17,6 +18,7 @@ dotenv.config({ path: "backend/config/config.env" });
 connectDatabase();
 
 app.use(express.json()); // passing in the JSON, req.body
+app.use(cookieParser());
 
 // Import all routes
 import productRoutes from "./routes/products.js";

@@ -25,10 +25,10 @@ const userSchema = new mongoose.Schema(
     //   public_id: String,
     //   url: String,
     // },
-    // role: {
-    //   type: String,
-    //   default: "user",
-    // },
+    role: {
+      type: String,
+      default: "user",
+    },
     resetPasswordToken: String,
     resetPasswordExpire: Date,
   },
@@ -54,10 +54,10 @@ userSchema.methods.getJwtToken = function () {
   });
 };
 
-// // Compare user password
-// userSchema.methods.comparePassword = async function (enteredPassword) {
-//   return await bcrypt.compare(enteredPassword, this.password);
-// };
+// Compare user password
+userSchema.methods.comparePassword = async function (enteredPassword) {
+  return await bcrypt.compare(enteredPassword, this.password);
+};
 
 // // Generate password reset token
 // userSchema.methods.getResetPasswordToken = function () {
