@@ -1,0 +1,10 @@
+.Header__logo, .Header__cart, .Header__user{
+    width: 10vw;
+    list-style: none;
+}
+
+.Header__nav a:hover,
+.Header__nav a.Header__active{
+    background-color: violet;
+
+}
