@@ -5,13 +5,13 @@ import "./Root.css";
 const Root = () => {
   return (
     <>
-      <div className="Root">
+      <section className="Root">
         <Header />
         <main className="Root__Main">
           <Outlet />
         </main>
         <Footer />
-      </div>
+      </section>
     </>
   );
 };
