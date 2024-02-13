@@ -3,8 +3,11 @@
     list-style: none;
 }
 
+.Header__nav a{
+    text-decoration: none;
+}
+
 .Header__nav a:hover,
 .Header__nav a.Header__active{
     background-color: violet;
-
 }
