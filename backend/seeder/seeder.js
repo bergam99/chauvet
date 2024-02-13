@@ -8,8 +8,8 @@ const seedProducts = async () => {
     // push pd
     await mongoose.connect("mongodb://localhost:27017/shopChauvet"); // connect to db to push the products in db.
     //delete all the pds
-    await Product.deleteMany();
-    console.log("Products are deleted");
+    // await Product.deleteMany();
+    // console.log("Products are deleted");
 
     await Product.insertMany(products);
     console.log("Products are added");

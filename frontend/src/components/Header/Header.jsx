@@ -15,7 +15,7 @@ const Header = () => {
   const navigate = useNavigate();
   const [logout, { data }] = useLazyLogoutQuery();
 
-  console.log("logout => ", data);
+  // console.log("logout => ", data);
 
   const logoutHandler = () => {
     logout();
@@ -57,13 +57,33 @@ const Header = () => {
               </NavLink>
             </li>
             <li>
-              <NavLink to="/me/orders">Commandes</NavLink>
+              <NavLink
+                to="/me/orders"
+                className={({ isActive }) =>
+                  isActive ? "Header__active" : undefined
+                }
+              >
+                Commandes
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/me/profile">Profile</NavLink>
+              <NavLink
+                to="/me/profile"
+                className={({ isActive }) =>
+                  isActive ? "Header__active" : undefined
+                }
+              >
+                Profile
+              </NavLink>
             </li>
             <li>
-              <NavLink to="/" onClick={logoutHandler}>
+              <NavLink
+                to="/"
+                className={({ isActive }) =>
+                  isActive ? "Header__active" : undefined
+                }
+                onClick={logoutHandler}
+              >
                 Logout
               </NavLink>
             </li>

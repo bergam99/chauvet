@@ -41,38 +41,38 @@ export const getProductDetails = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-// Update product details   =>  /api/v1/products/:id
-export const updateProduct = catchAsyncErrors(async (req, res) => {
-  let product = await Product.findById(req?.params?.id);
+// // Update product details   =>  /api/v1/products/:id
+// export const updateProduct = catchAsyncErrors(async (req, res) => {
+//   let product = await Product.findById(req?.params?.id);
 
-  if (!product) {
-    return next(new ErrorHandler("Product not found", 404));
-  }
+//   if (!product) {
+//     return next(new ErrorHandler("Product not found", 404));
+//   }
 
-  product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
-    // id of the pd, pass data in the body that i wanna update.
-    new: true, // return back the new pd object
-  });
+//   product = await Product.findByIdAndUpdate(req?.params?.id, req.body, {
+//     // id of the pd, pass data in the body that i wanna update.
+//     new: true, // return back the new pd object
+//   });
 
-  res.status(200).json({
-    product,
-  });
-});
+//   res.status(200).json({
+//     product,
+//   });
+// });
 
-// Delete product   =>  /api/v1/products/:id
-export const deleteProduct = catchAsyncErrors(async (req, res) => {
-  // find the pd in db
-  const product = await Product.findById(req?.params?.id);
+// // Delete product   =>  /api/v1/products/:id
+// export const deleteProduct = catchAsyncErrors(async (req, res) => {
+//   // find the pd in db
+//   const product = await Product.findById(req?.params?.id);
 
-  // if no pd send error
-  if (!product) {
-    return next(new ErrorHandler("Product not found", 404));
-  }
+//   // if no pd send error
+//   if (!product) {
+//     return next(new ErrorHandler("Product not found", 404));
+//   }
 
-  // otherwise call deleteOne
-  await product.deleteOne();
+//   // otherwise call deleteOne
+//   await product.deleteOne();
 
-  res.status(200).json({
-    message: "Product Deleted",
-  });
-});
+//   res.status(200).json({
+//     message: "Product Deleted",
+//   });
+// });
