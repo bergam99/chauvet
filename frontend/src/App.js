@@ -1,5 +1,6 @@
 import "./App.css";
 import Auth from "./pages/Auth/Auth";
+import Cart from "./pages/Cart/Cart";
 import Error from "./pages/Error/Error";
 import ForgotPassword from "./pages/ForgotPassword/ForgotPassword";
 import ProductDetails from "./pages/ProductDetails/ProductDetails";
@@ -21,7 +22,7 @@ const router = createBrowserRouter([
       { path: "/admin/dashboard", element: <Shop /> },
       { path: "/me/orders", element: <Shop /> },
       { path: "/me/profile", element: <Profile /> },
-      { path: "/cart", element: <Shop /> },
+      { path: "/cart", element: <Cart /> },
       { path: "/login", element: <Auth /> },
       { path: "/product/:id", element: <ProductDetails /> },
       { path: "/register", element: <Register /> },
