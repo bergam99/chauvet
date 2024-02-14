@@ -1,16 +1,17 @@
 export default [
   {
-    name: "pd1",
-    price: 1,
-    description: "des1",
+    name: "Magazine le mois de Juillet",
+    price: 30,
+    description:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
     images: [
       {
         public_id: "1-1",
-        url: "ex1.jpg",
+        url: "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707841100/9020e574249405.5c286115a6187_bgfm3w.jpg",
       },
       {
         public_id: "1-2",
-        url: "ex1.jpg",
+        url: "https://res.cloudinary.com/dr2nbo0rj/image/upload/v1707841404/c6104474249405.5c286115a756a_w2dbz3.jpg",
       },
       {
         public_id: "1-3",

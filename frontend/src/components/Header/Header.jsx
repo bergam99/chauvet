@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../../src/assets/imgs/logo/logo.png";
 import cart from "../../../src/assets/icons/cart.png";
 import userIcon from "../../../src/assets/icons/user.png";
@@ -13,13 +13,25 @@ const Header = () => {
   const { user } = useSelector((state) => state.auth);
 
   const navigate = useNavigate();
-  const [logout, { data }] = useLazyLogoutQuery();
+
+  // const [logout, { data }] = useLazyLogoutQuery();
 
   // console.log("logout => ", data);
 
+  // const logoutHandler = () => {
+  //   logout();
+  //   navigate(0); // refresh page
+  // };
+
+  const [logout, { isSuccess }] = useLazyLogoutQuery();
+
+  useEffect(() => {
+    if (isSuccess) navigate(0); // refresh page
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isSuccess]);
+
   const logoutHandler = () => {
     logout();
-    navigate(0); // refresh page
   };
 
   return (

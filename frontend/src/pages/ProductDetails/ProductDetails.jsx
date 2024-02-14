@@ -30,7 +30,7 @@ const ProductDetails = () => {
         <p>{product?.description}</p>
         <p>{product?.stock < 0 && "stock épuisé"}</p>
         {product?.images?.map((img) => (
-          <img src={img?.url} alt={img?.url} />
+          <img src={img?.url} alt={img?.url} key={img.url} />
         ))}
       </section>
     </>
