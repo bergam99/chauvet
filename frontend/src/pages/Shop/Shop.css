@@ -1,3 +1,7 @@
 .Shop__pd{
     border: 1px solid black;
 }
+
+.Shop__currentItem{
+    width: 50vw;
+}

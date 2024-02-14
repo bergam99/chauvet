@@ -14,15 +14,6 @@ const Header = () => {
 
   const navigate = useNavigate();
 
-  // const [logout, { data }] = useLazyLogoutQuery();
-
-  // console.log("logout => ", data);
-
-  // const logoutHandler = () => {
-  //   logout();
-  //   navigate(0); // refresh page
-  // };
-
   const [logout, { isSuccess }] = useLazyLogoutQuery();
 
   useEffect(() => {
