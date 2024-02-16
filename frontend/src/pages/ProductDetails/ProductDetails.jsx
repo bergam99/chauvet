@@ -74,7 +74,7 @@ const ProductDetails = () => {
         {/* ======== +,- ========*/}
         <div>
           <span onClick={decreseQty}>-</span>
-          <input type="number" className="count" value={quantity} readonly />
+          <input type="number" className="count" value={quantity} readOnly />
           <span onClick={increseQty}>+</span>
         </div>
 

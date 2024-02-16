@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { setCartItem, removeCartItem } from "../../redux/features/cartSlice";
 import "./Cart.css";
 
@@ -7,6 +7,7 @@ const Cart = () => {
   const dispatch = useDispatch();
 
   const { cartItems } = useSelector((state) => state.cart);
+  const navigate = useNavigate();
 
   const increseQty = (item, quantity) => {
     const newQty = quantity + 1;
@@ -41,6 +42,10 @@ const Cart = () => {
     dispatch(removeCartItem(id));
   };
 
+  const checkoutHandler = () => {
+    navigate("/shipping");
+  };
+
   return (
     <>
       {cartItems?.length === 0 ? (
@@ -67,7 +72,7 @@ const Cart = () => {
 
                 <div>
                   <span onClick={() => decreseQty(item, item.quantity)}>-</span>
-                  <input type="number" value={item?.quantity} readonly />
+                  <input type="number" value={item?.quantity} readOnly />
                   <span onClick={() => increseQty(item, item.quantity)}>+</span>
                 </div>
                 <button onClick={() => removeCartItemHandler(item?.product)}>
@@ -98,7 +103,7 @@ const Cart = () => {
               </span>
             </p>
             <hr />
-            <button>Payer</button>
+            <button onClick={checkoutHandler}>Payer</button>
           </div>
         </>
       )}

@@ -1,15 +1,15 @@
-// import express from "express";
-// const router = express.Router();
+import express from "express";
+const router = express.Router();
 
-// import { isAuthenticatedUser } from "../middlewares/auth.js";
-// import {
-//   getOrderDetails,
-//   myOrders,
-//   newOrder,
-// } from "../controllers/orderControllers.js";
+import { isAuthenticatedUser } from "../middlewares/auth.js";
+import {
+  getOrderDetails,
+  myOrders,
+  newOrder,
+} from "../controllers/orderController.js";
 
-// router.route("/orders/new").post(isAuthenticatedUser, newOrder);
-// router.route("/orders/:id").get(isAuthenticatedUser, getOrderDetails);
-// router.route("/me/orders").get(isAuthenticatedUser, myOrders);
+router.route("/orders/new").post(isAuthenticatedUser, newOrder);
+router.route("/orders/:id").get(isAuthenticatedUser, getOrderDetails);
+router.route("/me/orders").get(isAuthenticatedUser, myOrders);
 
-// export default router;
+export default router;

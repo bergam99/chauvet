@@ -1,0 +1,6 @@
+.CheckoutSteps__active{
+    background-color: lightcoral;
+}
+.CheckoutSteps__disabled{
+    background-color: lightgrey;
+}
