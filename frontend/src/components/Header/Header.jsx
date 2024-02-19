@@ -1,12 +1,11 @@
 import React, { useEffect } from "react";
-import logo from "../../../src/assets/imgs/logo/logo.png";
 import cart from "../../../src/assets/icons/cart.png";
 import userIcon from "../../../src/assets/icons/user.png";
-import "./Header.css";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useGetMeQuery } from "../../redux/api/userApi";
 import { useSelector } from "react-redux";
 import { useLazyLogoutQuery } from "../../redux/api/authApi";
+import "./Header.css";
 
 const Header = () => {
   const { isLoading } = useGetMeQuery();
@@ -30,7 +29,7 @@ const Header = () => {
       <ul className="Header">
         <li>
           <NavLink to="/" end>
-            <img className="Header__logo" src={logo} alt="logo" />
+            <h1 className="Header__logo">Chauvet</h1>
           </NavLink>
         </li>
         <li>

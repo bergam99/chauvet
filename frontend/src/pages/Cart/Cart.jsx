@@ -57,13 +57,14 @@ const Cart = () => {
           </h2>
 
           <div>
-            {cartItems?.map((item) => (
+            {cartItems?.map((item, index) => (
               <div>
                 <hr />
                 <img
                   className="Cart__img"
                   src={item?.image}
-                  alt={item?.image.url}
+                  alt={item?.name}
+                  key={index}
                 />
 
                 <Link to={`/products/${item?.product}`}>{item?.name}</Link>

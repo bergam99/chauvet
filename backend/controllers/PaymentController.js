@@ -4,12 +4,15 @@ import Order from "../models/order.js";
 
 import Stripe from "stripe";
 
-const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+// const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+
+console.log(process.env.STRIPE_SECRET_KEY);
 
 // Create stripe checkout session   =>  /api/v1/payment/checkout_session
 export const stripeCheckoutSession = catchAsyncErrors(
   async (req, res, next) => {
     const body = req?.body;
+    const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
     // cart items from front
     const line_items = body?.orderItems?.map((item) => {
@@ -34,7 +37,7 @@ export const stripeCheckoutSession = catchAsyncErrors(
     const shipping_rate =
       body?.itemsPrice >= 50
         ? "shr_1OjkZLDMXrKyb8KkmArOUWkT"
-        : "shr_1OjkZLDMXrKyb8KkmArOUWkT";
+        : "shr_1OjkbzDMXrKyb8KkMlBHsuND";
 
     // Stripe checkout session
     const session = await stripe.checkout.sessions.create({
@@ -63,6 +66,8 @@ export const stripeCheckoutSession = catchAsyncErrors(
 
 // ============
 const getOrderItems = async (line_items) => {
+  const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+
   return new Promise((resolve, reject) => {
     let cartItems = [];
 
@@ -87,6 +92,8 @@ const getOrderItems = async (line_items) => {
 
 // Create new order after payment   =>  /api/v1/payment/webhook
 export const stripeWebhook = catchAsyncErrors(async (req, res, next) => {
+  const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
+
   try {
     const signature = req.headers["stripe-signature"];
 
@@ -99,6 +106,7 @@ export const stripeWebhook = catchAsyncErrors(async (req, res, next) => {
     if (event.type === "checkout.session.completed") {
       const session = event.data.object;
 
+      console.log({ session });
       const line_items = await stripe.checkout.sessions.listLineItems(
         session.id
       );
@@ -135,6 +143,7 @@ export const stripeWebhook = catchAsyncErrors(async (req, res, next) => {
         paymentMethod: "Card",
         user,
       };
+      console.log({ orderData });
 
       await Order.create(orderData);
 

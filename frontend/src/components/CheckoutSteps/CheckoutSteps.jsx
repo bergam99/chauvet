@@ -7,21 +7,21 @@ const CheckoutSteps = ({ shipping, confirmOrder, payment }) => {
     <div>
       {shipping ? (
         <Link to="/shipping">
-          <div className="CheckoutSteps__active">Shipping</div>
+          <div className="CheckoutSteps__active">Livraison</div>
         </Link>
       ) : (
         <Link to="#!" disabled>
-          <div className="CheckoutSteps__disabled">Shipping</div>
+          <div className="CheckoutSteps__disabled">Livraison</div>
         </Link>
       )}
 
       {confirmOrder ? (
         <Link to="/confirm_order">
-          <div className="CheckoutSteps__active">Confirm Order</div>
+          <div className="CheckoutSteps__active">confirmer la commande</div>
         </Link>
       ) : (
         <Link to="#!" disabled>
-          <div className="CheckoutSteps__disabled">Confirm Order</div>
+          <div className="CheckoutSteps__disabled">confirmer la commande</div>
         </Link>
       )}
 

@@ -85,7 +85,7 @@ const PaymentMethod = () => {
       <div className="row wrapper">
         <div className="col-10 col-lg-5">
           <form className="shadow rounded bg-body" onSubmit={submitHandler}>
-            <h2 className="mb-4">Select Payment Method</h2>
+            <h2 className="mb-4">Selectionner la méthode de paiement</h2>
 
             <div className="form-check">
               <input
@@ -97,7 +97,7 @@ const PaymentMethod = () => {
                 onChange={(e) => setMethod("Card")}
               />
               <label className="form-check-label" htmlFor="cardradio">
-                Card - VISA, MasterCard
+                Carte - VISA, MasterCard
               </label>
             </div>
 
@@ -107,7 +107,7 @@ const PaymentMethod = () => {
               className="btn py-2 w-100"
               disabled={isLoading}
             >
-              CONTINUE
+              continuer
             </button>
           </form>
         </div>

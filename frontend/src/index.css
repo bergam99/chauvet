@@ -1,0 +1,63 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Comfortaa:wght@300..700&family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+/* font-family: "Comfortaa", sans-serif; */
+/* font-family: "Libre Caslon Text", serif; */
+/* font-family: "Courier Prime", monospace; */
+/* font-family: "Baskervville", serif; */
+/* font-family: "Roboto", sans-serif; */
+:root {
+    /* colors */
+    --color-white: #FFFFFF;
+    --color-black: #000000;
+    --color-heavy-gray: #202D2E;
+    --color-gray: #F3F3F3;
+    --color-pink: #F6F0F0;
+    --color-alert: #F22929;
+    --color-disabled: #808080;
+
+    /* font-family */
+    --ff-title: "Libre Caslon Text", serif;
+    --ff-body: "Roboto", sans-serif;
+    --ff-heading:"Comfortaa", sans-serif;
+    --ff-link: "Courier Prime", monospace;
+    
+    /* font-size */
+    --fs-xl: clamp(1rem, 3vw + 1rem, 2rem);
+    --fs-600: 2rem;
+    --fs-400: 1rem;
+
+    /* font-weight */
+    --fw-light: 300;
+    --fw-normal:400;
+
+    /* letter-spacing */
+    --ls-light: .1rem;
+}
+
+/* normalize */
+*,
+body {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    font-size: var(--fs-400);
+    font-family:var(--ff-body);
+    font-weight: var(--fw-light);
+    color: var(--color-heavy-gray);
+    letter-spacing: var(--ls-light);
+}
+
+button {
+    all: unset;
+    cursor: pointer;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
